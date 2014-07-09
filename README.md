@@ -2,6 +2,13 @@ FlipCard.js
 ===========
 FlipCard.js implements card filp animation with javascript, css3 and html5. It's fully customizable with either html5 "data-*" attributes or options in javascript. It also supports all modern browsers which including chrome, firefox, safari, opera, and IE7+.
 
+Demo
+============
+http://jiji262.github.io/FlipCard.js/
+
+Usage
+============
+
 ### First, you need have references to flipcard.css, flipcard.js and jquery 1.7+
 ```javascript
 <link rel="stylesheet" type="text/css" href="flipcard.css" />
