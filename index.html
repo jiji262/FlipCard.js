@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>FlipCard</title>
+	<link rel="stylesheet" type="text/css" href="css/flipcard.css" />
+	<link rel="stylesheet" href="css/app.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+	<script src="js/jquery.flipcard.js"></script>
+	<script type="text/javascript">
+   // <![CDATA[
+   $(document).ready(function() {
+	    if (top != self) {
+	        top.location.replace(document.location);
+	    }
+
+	    function getAlwaysOneDirection() {
+	        if ($("#oneDirection").is(":checked")) {
+	            return "true";
+	        } else {
+	            return "false";
+	        }
+	    }
+
+	    $(".group1 .bw1 .button1").on("click", function() {
+	        $(".group1 .card-container").flip({
+	            direction: "lr",
+	            alwaysOneDirection: getAlwaysOneDirection()
+	        });
+	    })
+	    $(".group1 .bw1 .button2").on("click", function() {
+	        $(".group1 .card-container").flip({
+	            direction: "rl",
+	            alwaysOneDirection: getAlwaysOneDirection()
+	        });
+	    })
+	    $(".group1 .bw1 .button3").on("click", function() {
+	        $(".group1 .card-container").flip({
+	            direction: "tb",
+	            alwaysOneDirection: getAlwaysOneDirection()
+	        });
+	    })
+	    $(".group1 .bw1 .button4").on("click", function() {
+	        $(".group1 .card-container").flip({
+	            direction: "bt",
+	            alwaysOneDirection: getAlwaysOneDirection()
+	        });
+	    })
+
+	    $(".group1 .bw2 .button1").on("click", function() {
+	        $(".group1 .card-container").flip({
+	            speed: "1.5s",
+	            alwaysOneDirection: getAlwaysOneDirection()
+	        });
+	    })
+	    $(".group1 .bw2 .button2").on("click", function() {
+	        $(".group1 .card-container").flip({
+	            speed: "500ms",
+	            alwaysOneDirection: getAlwaysOneDirection()
+	        });
+	    })
+	    $(".group1 .bw2 .button3").on("click", function() {
+	        $(".group1 .card-container").flip({
+	            speed: "1s",
+	            alwaysOneDirection: getAlwaysOneDirection()
+	        });
+	    })
+	    $(".group1 .bw2 .button4").on("click", function() {
+	        $(".group1 .card-container").flip({
+	            speed: "2s",
+	            alwaysOneDirection: getAlwaysOneDirection()
+	        });
+	    })
+
+	    $(".group1 .bw3 .button1").on("click", function() {
+	        $(".group1 .card-container").flip({
+	            speed: "2s",
+	            timingfunction: "ease",
+	            alwaysOneDirection: getAlwaysOneDirection()
+	        });
+	    })
+	    $(".group1 .bw3 .button2").on("click", function() {
+	        $(".group1 .card-container").flip({
+	            speed: "2s",
+	            timingfunction: "ease-in",
+	            alwaysOneDirection: getAlwaysOneDirection()
+	        });
+	    })
+	    $(".group1 .bw3 .button3").on("click", function() {
+	        $(".group1 .card-container").flip({
+	            speed: "2s",
+	            timingfunction: "ease-out-cubic",
+	            alwaysOneDirection: getAlwaysOneDirection()
+	        });
+	    })
+	    $(".group1 .bw3 .button4").on("click", function() {
+	        $(".group1 .card-container").flip({
+	            speed: "2s",
+	            timingfunction: "ease-in-expo",
+	            alwaysOneDirection: getAlwaysOneDirection()
+	        });
+	    })
+
+	    $(".group1 .bw4 .button1").on("click", function() {
+	        $(".group1 .card-container").flip({
+	            alwaysOneDirection: getAlwaysOneDirection(),
+	            onflipping: function(currentDirection, currentTransformDirection) {
+	                if (currentTransformDirection === "fb") {
+	                    alert("onflipping event: current flip direction is " + currentDirection + ", current transform direction is from front to back");
+	                } else if (currentTransformDirection === "bf") {
+	                    alert("onflipping event: current flip direction is " + currentDirection + ", current transform direction is from back to front");
+	                }
+	            }
+	        });
+	    })
+	    $(".group1 .bw4 .button2").on("click", function() {
+	        $(".group1 .card-container").flip({
+	            direction: "tb",
+	            alwaysOneDirection: getAlwaysOneDirection(),
+	            onflipped: function(currentDirection, currentTransformDirection) {
+	                if (currentTransformDirection === "fb") {
+	                    alert("onflipped event: current flip direction is " + currentDirection + ", current transform direction is from front to back");
+	                } else if (currentTransformDirection === "bf") {
+	                    alert("onflipped event: current flip direction is " + currentDirection + ", current transform direction is from back to front");
+	                }
+	            }
+	        });
+	    })
+
+	    $(".group1 .bw5 .button1").on("click", function() {
+	        $(".group1 .card-container").flip({
+	            autoflip: "true",
+	            autoflipstart: "0",
+	            autoflipdelay: "1s",
+	            alwaysOneDirection: getAlwaysOneDirection()
+	        });
+	    })
+	    $(".group1 .bw5 .button2").on("click", function() {
+	        $(".group1 .card-container").flip({
+	            autoflip: "true",
+	            autoflipstart: "0",
+	            autoflipdelay: "3s",
+	            alwaysOneDirection: getAlwaysOneDirection()
+	        });
+	    })
+	    $(".group1 .bw5 .button3").on("click", function() {
+	        $(".group1 .card-container").flip({
+	            autoflip: "true",
+	            autoflipstart: "500ms",
+	            autoflipdelay: "2s",
+	            alwaysOneDirection: getAlwaysOneDirection()
+	        });
+	    })
+	    $(".group1 .bw5 .button4").on("click", function() {
+	        $(".group1 .card-container").flip("stopautoflip");
+	    })
+
+
+	    //group2
+	    $(".group2 .card-container").flip();
+
+	    $(".group2 .bw1 .button1").on("click", function() {
+	        $(".group2 .card-container").flip({
+	            autoflip: "true",
+	            autoflipstart: "0",
+	            autoflipdelay: "1s"
+	        });
+	    })
+	    $(".group2 .bw1 .button2").on("click", function() {
+	        $(".group2 .card-container").flip({
+	            autoflip: "true",
+	            autoflipstart: "0",
+	            autoflipdelay: "3s"
+	        });
+	    })
+	    $(".group2 .bw1 .button3").on("click", function() {
+	        $(".group2 .card-container").flip({
+	            autoflip: "true",
+	            autoflipstart: "500ms",
+	            autoflipdelay: "2s"
+	        });
+	    })
+	    $(".group2 .bw1 .button4").on("click", function() {
+	        $(".group2 .card-container").flip("stopautoflip");
+	    })
+
+	    //group3
+	    $(".group3 .card-container").flip();
+});
+</script>
+</head>
+<body>
+        <div class="container group1">
+            <div class="card-container dual">
+                <div class="card">
+                    <div class="front">
+                        <img src="images/400X200.png" />
+                    </div>
+                    <div class="back orange">
+                        <h3>Stanford Main Quad</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="smallspacer"></div>
+            <div class="smallspacer"></div>
+            <div class="action">
+                <div class="description">FlipCard.js implements card filp animation with javascript, css3 and html5. It's fully customizable with either html5 "data-*" attributes or options in javascript. It also supports all modern browsers which including chrome, firefox, safari, opera, and IE7+. </div>
+                <div class="smallspacer"></div>
+                <div class="description">Examples are shown as follows to demostrate that what you can do with FlipCard.js and how flexible you get to use it.</div>
+                <div class="smallspacer"></div>
+                <div class="clear"></div>
+                <div class="action-left">
+                    <div class="buttonwrapper bw0">
+                        <div class="color gray"></div>
+                        <div class="label">Always One Direction</div>
+                        <div class="button button1"><input type="checkbox" name="oneDirection" id="oneDirection"></div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="buttonwrapper bw1">
+                        <div class="color orange"></div>
+                        <div class="label">Direction</div>
+                        <div class="button button1">Left</div>
+                        <div class="button button2">Right</div>
+                        <div class="button button3">Top</div>
+                        <div class="button button4">Bottom</div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="buttonwrapper bw2">
+                        <div class="color yellow"></div>
+                        <div class="label">Speed</div>
+                        
+                        <div class="button button2">500ms</div>
+                        <div class="button button3">1s</div>
+                        <div class="button button1">1.5s</div>
+                        <div class="button button4">2s</div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="buttonwrapper bw3">
+                        <div class="color gray"></div>
+                        <div class="label">Timing function</div>
+                        <div class="button button1">ease</div>
+                        <div class="button button2">ease-in</div>
+                        <div class="button button3">ease-out-cubic</div>
+                        <div class="button button4">ease-in-expo</div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="buttonwrapper bw4">
+                        <div class="color green"></div>
+                        <div class="label">Event</div>
+                        <div class="button button1">on flipping</div>
+                        <div class="button button2">on flipped</div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="buttonwrapper bw5">
+                        <div class="color blue"></div>
+                        <div class="label">Autoflip</div>
+                        <div class="button button1">Start at 0ms, delay: 1s</div>
+                        
+                        <div class="button button3">Start at 500ms, delay: 2s </div>
+                        <div class="button button4">Stop</div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="action-right">
+
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+       <div class="container group2">
+            <div class="subtitle">Auto flipping cards all at once</div>
+            <div class="clear"></div>
+            <div class="card-container" data-autoflip="true" data-autoflipstart="1500ms" data-autoflipdelay="2500ms" data-direction="rl" data-speed="600ms" data-timingfunction="ease-in-out">
+                <div class="card">
+                    <div class="front">
+                        <h3>DEMO FRONT</h3>
+                    </div>
+                    <div class="back blue">
+                        <h3>Freeway 280</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="card-container dual" data-autoflip="true" data-autoflipstart="1500ms" data-autoflipdelay="2500ms" data-direction="bt" data-speed="600ms" data-timingfunction="ease-in-out">
+                <div class="card">
+                    <div class="front">
+                        <h3>DEMO FRONT</h3>
+                    </div>
+                    <div class="back gray">
+                        <h3>Half moon bay</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="card-container" data-autoflip="true" data-autoflipstart="1500ms" data-autoflipdelay="2500ms" data-direction="lr" data-speed="600ms" data-timingfunction="ease-in-out">
+                <div class="card">
+                    <div class="back">
+                        <h3>DEMO FRONT</h3>
+                    </div>
+                    <div class="front green">
+                        <h3>Lake</h3>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card-container dual" data-autoflip="true" data-autoflipstart="1500ms" data-autoflipdelay="2500ms" data-direction="lr" data-speed="600ms" data-timingfunction="ease-in-out">
+                <div class="card">
+                    <div class="back">
+                        <h3>DEMO FRONT</h3>
+                    </div>
+                    <div class="front orange">
+                        <h3>Stanford Main Quad</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="card-container" data-autoflip="true" data-autoflipstart="1500ms" data-autoflipdelay="2500ms" data-direction="rl" data-speed="600ms" data-timingfunction="ease-in-out">
+                <div class="card">
+                    <div class="front">
+                        <h3>DEMO FRONT</h3>
+                    </div>
+                    <div class="back green">
+                        <h3>Lake</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="card-container" data-autoflip="true" data-autoflipstart="1500ms" data-autoflipdelay="2500ms" data-direction="tb" data-speed="600ms" data-timingfunction="ease-in-out">
+                <div class="card">
+                    <div class="back">
+                        <h3>DEMO FRONT</h3>
+                    </div>
+                    <div class="front blue">
+                        <h3>Freeway 280</h3>
+                    </div>
+                </div>
+            </div>
+
+
+            
+            <div class="card-container" data-autoflip="true" data-autoflipstart="1500ms" data-autoflipdelay="2500ms" data-direction="bt" data-speed="600ms" data-timingfunction="ease-in-out">
+                <div class="card">
+                    <div class="back">
+                        <h3>DEMO FRONT</h3>
+                    </div>
+                    <div class="front green">
+                        <h3>Lake</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="card-container dual" data-autoflip="true" data-autoflipstart="1500ms" data-autoflipdelay="2500ms" data-direction="tb" data-speed="600ms" data-timingfunction="ease-in-out">
+                <div class="card">
+                    <div class="front">
+                        <h3>DEMO FRONT</h3>
+                    </div>
+                    <div class="back blue">
+                        <h3>Freeway 280</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="card-container " data-autoflip="true" data-autoflipstart="1500ms" data-autoflipdelay="2500ms" data-direction="lr" data-speed="600ms" data-timingfunction="ease-in-out">
+                <div class="card">
+                    <div class="front">
+                        <h3>DEMO FRONT</h3>
+                    </div>
+                    <div class="back orange">
+                        <h3>Stanford Main Quad</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="smallspacer"></div>
+            <div class="smallspacer"></div>
+            <div class="action">
+                <div class="description">A group of cards flip together. You can stop and restart them in different configurations with flipcard.js manipulation API easily. Hit the following buttons to play it.</div>
+                <div class="smallspacer"></div>
+                <div class="clear"></div>
+                <div class="action-left">
+                    <div class="buttonwrapper bw1">
+                        <div class="color yellow"></div>
+                        <div class="label">Autoflip</div>
+                        <div class="button button1">Start at 0ms, delay: 1s</div>
+                        
+                        <div class="button button3">Start at 500ms, delay: 2s </div>
+                        <div class="button button4">Stop</div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+
+</body>
+</html>
