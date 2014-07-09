@@ -86,7 +86,7 @@ var options = {
 //stop auto flip. Just give a "stopautoflip" command in flip() function
 $(".card-container").flip("stopautoflip")
  ```
-Built-in timing function full list##
+## Built-in timing function full list
 ```javascript
 'ease'
 'ease-in'
