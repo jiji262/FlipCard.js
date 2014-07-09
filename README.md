@@ -88,7 +88,6 @@ $(".card-container").flip("stopautoflip")
  ```
 Built-in timing function full list##
 ```javascript
-
 'ease'
 'ease-in'
 'ease-out'
